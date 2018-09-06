@@ -13,10 +13,10 @@ class :uc:packageServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', ':lc:vendor');
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', ':lc:vendor');
         // $this->loadViewsFrom(__DIR__.'/../resources/views', ':lc:vendor');
-        // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-        // $this->loadRoutesFrom(__DIR__.'/routes.php');
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        $this->loadRoutesFrom(__DIR__.'/routes/web.php');
 
         // Publishing is only necessary when using the CLI.
         if ($this->app->runningInConsole()) {
@@ -37,12 +37,12 @@ class :uc:packageServiceProvider extends ServiceProvider
             ], ':lc:package.assets');*/
 
             // Publishing the translation files.
-            /*$this->publishes([
+            $this->publishes([
                 __DIR__.'/../resources/lang' => resource_path('lang/vendor/:lc:vendor'),
-            ], ':lc:package.lang');*/
+            ], ':lc:package.lang');
 
             // Registering package commands.
-            // $this->commands([]);
+            $this->commands([]);
         }
     }
 
