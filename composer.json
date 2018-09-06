@@ -1,6 +1,6 @@
 {
     "name": ":lc:vendor/:lc:package",
-    "description": ":description",
+    "description": ":uc:vendor :uc:package package",
     "license": ":license",
     "authors": [
         {
@@ -19,6 +19,10 @@
         "orchestra/testbench": "~3.0"
     },
     "autoload": {
+        "classmap": [
+            "database/seeds",
+            "database/factories"
+        ],
         "psr-4": {
             ":uc:vendor\\:uc:package\\": "src/"
         }
@@ -32,10 +36,7 @@
         "laravel": {
             "providers": [
                 ":uc:vendor\\:uc:package\\:uc:packageServiceProvider"
-            ],
-            "aliases": {
-                ":uc:package": ":uc:vendor\\:uc:package\\Facades\\:uc:package"
-            }
+            ]
         }
     }
 }
